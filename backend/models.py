@@ -90,7 +90,7 @@ class TimeEntryBase(BaseModel):
     start_time: Optional[datetime] = None
     end_time: Optional[datetime] = None
     duration: int = Field(..., ge=1)  # duration in minutes
-    date: str = Field(..., regex=r'^\d{4}-\d{2}-\d{2}$')
+    date: str = Field(..., pattern=r'^\d{4}-\d{2}-\d{2}$')
     is_manual: bool = Field(default=True)
 
 class TimeEntryCreate(TimeEntryBase):
