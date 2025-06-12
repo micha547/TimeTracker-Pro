@@ -102,7 +102,7 @@ class TimeEntryUpdate(BaseModel):
     start_time: Optional[datetime] = None
     end_time: Optional[datetime] = None
     duration: Optional[int] = Field(None, ge=1)
-    date: Optional[str] = Field(None, regex=r'^\d{4}-\d{2}-\d{2}$')
+    date: Optional[str] = Field(None, pattern=r'^\d{4}-\d{2}-\d{2}$')
     is_manual: Optional[bool] = None
 
 class TimeEntry(TimeEntryBase):
