@@ -10,14 +10,28 @@ from datetime import datetime
 import uuid
 
 # Import models
-from .models import (
-    Client, ClientCreate, ClientUpdate,
-    Project, ProjectCreate, ProjectUpdate,
-    TimeEntry, TimeEntryCreate, TimeEntryUpdate,
-    Invoice, InvoiceCreate, InvoiceUpdate,
-    ActiveTimer, ActiveTimerCreate, TimerStartRequest, TimerStopResponse,
-    SuccessResponse, ErrorResponse
-)
+try:
+    from models import (
+        Client, ClientCreate, ClientUpdate,
+        Project, ProjectCreate, ProjectUpdate,
+        TimeEntry, TimeEntryCreate, TimeEntryUpdate,
+        Invoice, InvoiceCreate, InvoiceUpdate,
+        ActiveTimer, ActiveTimerCreate, TimerStartRequest, TimerStopResponse,
+        SuccessResponse, ErrorResponse
+    )
+except ImportError:
+    # For development/testing
+    import sys
+    import os
+    sys.path.append(os.path.dirname(__file__))
+    from models import (
+        Client, ClientCreate, ClientUpdate,
+        Project, ProjectCreate, ProjectUpdate,
+        TimeEntry, TimeEntryCreate, TimeEntryUpdate,
+        Invoice, InvoiceCreate, InvoiceUpdate,
+        ActiveTimer, ActiveTimerCreate, TimerStartRequest, TimerStopResponse,
+        SuccessResponse, ErrorResponse
+    )
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
