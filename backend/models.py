@@ -55,7 +55,7 @@ class ProjectBase(BaseModel):
     description: Optional[str] = Field(None, max_length=1000)
     client_id: str = Field(..., min_length=1)
     hourly_rate: float = Field(..., ge=0)
-    currency: str = Field(default="EUR", regex=r'^[A-Z]{3}$')
+    currency: str = Field(default="EUR", pattern=r'^[A-Z]{3}$')
     start_date: Optional[str] = Field(None, regex=r'^\d{4}-\d{2}-\d{2}$')
     end_date: Optional[str] = Field(None, regex=r'^\d{4}-\d{2}-\d{2}$')
     status: ProjectStatus = Field(default=ProjectStatus.active)
