@@ -10,7 +10,7 @@ from datetime import datetime
 import uuid
 
 # Import models
-from models import (
+from .models import (
     Client, ClientCreate, ClientUpdate,
     Project, ProjectCreate, ProjectUpdate,
     TimeEntry, TimeEntryCreate, TimeEntryUpdate,
