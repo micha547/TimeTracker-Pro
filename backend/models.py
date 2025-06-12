@@ -140,7 +140,7 @@ class InvoiceUpdate(BaseModel):
     due_date: Optional[str] = Field(None, regex=r'^\d{4}-\d{2}-\d{2}$')
     total_hours: Optional[float] = Field(None, ge=0)
     total_amount: Optional[float] = Field(None, ge=0)
-    currency: Optional[str] = Field(None, regex=r'^[A-Z]{3}$')
+    currency: Optional[str] = Field(None, pattern=r'^[A-Z]{3}$')
     status: Optional[InvoiceStatus] = None
     time_entries: Optional[List[str]] = None
     custom_description: Optional[str] = Field(None, max_length=1000)
