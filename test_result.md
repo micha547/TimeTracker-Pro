@@ -263,25 +263,23 @@ frontend:
         comment: "Full stack integration completed. Frontend now uses real backend API instead of mock data. Ready for comprehensive testing."
 
 metadata:
-  created_by: "testing_agent"
-  version: "1.0"
-  test_sequence: 1
+  created_by: "main_agent"
+  version: "2.0"
+  test_sequence: 2
   run_ui: false
 
 test_plan:
   current_focus:
-    - "Health Check Endpoint"
-    - "Root Endpoint"
-    - "Client CRUD Operations"
-    - "Project CRUD Operations"
-    - "Time Entry CRUD Operations"
-    - "Timer Functionality"
-    - "Invoice CRUD Operations"
-    - "Error Handling"
+    - "Full Stack Integration"
+    - "Frontend with Backend API"
+    - "Timer Real-time Functionality"
+    - "Data Persistence"
   stuck_tasks: []
-  test_all: true
+  test_all: false
   test_priority: "high_first"
 
 agent_communication:
   - agent: "testing"
     message: "I have completed testing of all the TimeTracker backend API endpoints. All tests are passing successfully. The API is working as expected with proper error handling and validation."
+  - agent: "main"
+    message: "Backend development completed successfully. Created comprehensive API with MongoDB integration. Frontend updated to use real API instead of mock data. Full stack integration is now complete and ready for testing."
