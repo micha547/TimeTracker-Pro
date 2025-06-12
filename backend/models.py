@@ -124,7 +124,7 @@ class InvoiceBase(BaseModel):
     due_date: str = Field(..., regex=r'^\d{4}-\d{2}-\d{2}$')
     total_hours: float = Field(..., ge=0)
     total_amount: float = Field(..., ge=0)
-    currency: str = Field(default="EUR", regex=r'^[A-Z]{3}$')
+    currency: str = Field(default="EUR", pattern=r'^[A-Z]{3}$')
     status: InvoiceStatus = Field(default=InvoiceStatus.draft)
     time_entries: List[str] = Field(default_factory=list)
     custom_description: Optional[str] = Field(None, max_length=1000)
