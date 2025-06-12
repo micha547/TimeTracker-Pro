@@ -97,6 +97,7 @@ class TimeTrackerAPITest(unittest.TestCase):
         """Test client CRUD operations"""
         # CREATE
         response = requests.post(f"{API_BASE}/clients", json=self.test_client)
+        print(f"Client creation response: {response.status_code}, {response.text}")
         self.assertEqual(response.status_code, 200)
         client = response.json()
         self.assertIn("id", client)
