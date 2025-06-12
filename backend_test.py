@@ -95,6 +95,10 @@ class TimeTrackerAPITest(unittest.TestCase):
 
     def test_03_client_crud(self):
         """Test client CRUD operations"""
+        # First, let's make sure we have a unique email
+        timestamp = int(time.time())
+        self.test_client["email"] = f"test{timestamp}@example.com"
+        
         # CREATE
         print(f"Creating client with data: {self.test_client}")
         response = requests.post(f"{API_BASE}/clients", json=self.test_client)
