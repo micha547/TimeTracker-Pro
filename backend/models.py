@@ -24,7 +24,7 @@ class InvoiceStatus(str, Enum):
 # Client Models
 class ClientBase(BaseModel):
     name: str = Field(..., min_length=1, max_length=255)
-    email: str = Field(..., regex=r'^[^@]+@[^@]+\.[^@]+$')
+    email: str = Field(..., pattern=r'^[^@]+@[^@]+\.[^@]+$')
     phone: Optional[str] = Field(None, max_length=50)
     address: Optional[str] = Field(None, max_length=500)
     is_active: bool = Field(default=True)
