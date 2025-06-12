@@ -34,7 +34,7 @@ class ClientCreate(ClientBase):
 
 class ClientUpdate(BaseModel):
     name: Optional[str] = Field(None, min_length=1, max_length=255)
-    email: Optional[str] = Field(None, regex=r'^[^@]+@[^@]+\.[^@]+$')
+    email: Optional[str] = Field(None, pattern=r'^[^@]+@[^@]+\.[^@]+$')
     phone: Optional[str] = Field(None, max_length=50)
     address: Optional[str] = Field(None, max_length=500)
     is_active: Optional[bool] = None
